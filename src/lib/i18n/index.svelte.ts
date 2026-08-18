@@ -18,26 +18,35 @@ export const LOCALE_NAMES: Record<Locale, string> = {
 };
 
 export const LOCALES: Locale[] = ['en', 'ru', 'uk', 'de', 'es'];
+export const DEFAULT_LOCALE: Locale = 'en';
 
 const STORAGE_KEY = 'cgs_locale';
 
-function detectInitialLocale(): Locale {
+// Client-only preference lookup, used to pick a redirect target from the
+// language-neutral "/" route. Never called during SSR/prerendering.
+export function detectPreferredLocale(): Locale {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved && LOCALES.includes(saved as Locale)) return saved as Locale;
   const nav = navigator.language.slice(0, 2).toLowerCase();
-  return LOCALES.includes(nav as Locale) ? (nav as Locale) : 'en';
+  return LOCALES.includes(nav as Locale) ? (nav as Locale) : DEFAULT_LOCALE;
 }
 
 class LocaleStore {
-  current = $state<Locale>(detectInitialLocale());
+  // Always starts at the default so server-rendered and prerendered markup
+  // is deterministic; each /[lang]/ route syncs this to its own param.
+  current = $state<Locale>(DEFAULT_LOCALE);
 
   get t(): Translation {
     return TRANSLATIONS[this.current];
   }
 
+  setFromRoute(locale: Locale): void {
+    this.current = locale;
+  }
+
   set(locale: Locale): void {
     this.current = locale;
-    localStorage.setItem(STORAGE_KEY, locale);
+    if (typeof localStorage !== 'undefined') localStorage.setItem(STORAGE_KEY, locale);
   }
 }
 

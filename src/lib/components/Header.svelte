@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { localeStore } from '../../i18n/index.svelte';
-  import { LEVELS } from '../../data/levels';
-  import { game, loadLevel } from '../../state/gameState.svelte';
-  import { ui } from '../../state/uiState.svelte';
-  import { checkLevel, buildCodeHtml, stripTags } from '../../lib/gridEngine';
+  import { localeStore } from '$lib/i18n/index.svelte';
+  import { LEVELS } from '$lib/data/levels';
+  import { game, loadLevel, markLevelCompleted } from '$lib/state/gameState.svelte';
+  import { ui } from '$lib/state/uiState.svelte';
+  import { checkLevel, buildCodeHtml, stripTags } from '$lib/gridEngine';
   import LanguageSwitcher from './LanguageSwitcher.svelte';
 
   const totalLevels = LEVELS.length;
@@ -20,7 +20,7 @@
     const level = LEVELS[game.levelIdx]!;
     const levelText = t.levels[game.levelIdx]!;
     if (checkLevel(level.target, game.values)) {
-      game.completed.add(game.levelIdx);
+      markLevelCompleted(game.levelIdx);
       ui.showSuccess(t.ui.successFeedback);
       ui.successCode = stripTags(
         buildCodeHtml(level, game.values, game.levelIdx + 1, {

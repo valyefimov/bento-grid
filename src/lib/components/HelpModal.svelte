@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { localeStore } from '../../i18n/index.svelte';
-  import { ui } from '../../state/uiState.svelte';
+  import { localeStore } from '$lib/i18n/index.svelte';
+  import { ui } from '$lib/state/uiState.svelte';
 
   let t = $derived(localeStore.t);
 

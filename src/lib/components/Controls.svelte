@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { localeStore } from '../../i18n/index.svelte';
-  import { LEVELS } from '../../data/levels';
-  import { game } from '../../state/gameState.svelte';
-  import type { ControlId } from '../../types';
+  import { localeStore } from '$lib/i18n/index.svelte';
+  import { LEVELS } from '$lib/data/levels';
+  import { game } from '$lib/state/gameState.svelte';
+  import type { ControlId } from '$lib/types';
 
   let t = $derived(localeStore.t);
   let level = $derived(LEVELS[game.levelIdx]!);
@@ -120,5 +120,43 @@
     <option value="holy">{t.options.areaHoly}</option>
     <option value="stack">{t.options.areaStack}</option>
     <option value="right">{t.options.areaRight}</option>
+  </select>
+</div>
+
+<div class="ctl" class:ctl-hidden={!visible('justifyself')}>
+  <p class="ctl-label">{t.ui.justifyselfControlLabel}</p>
+  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.justifySelf}>
+    <option value="stretch">stretch</option>
+    <option value="start">start</option>
+    <option value="center">center</option>
+    <option value="end">end</option>
+  </select>
+</div>
+
+<div class="ctl" class:ctl-hidden={!visible('alignself')}>
+  <p class="ctl-label">{t.ui.alignselfControlLabel}</p>
+  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.alignSelf}>
+    <option value="stretch">stretch</option>
+    <option value="start">start</option>
+    <option value="center">center</option>
+    <option value="end">end</option>
+  </select>
+</div>
+
+<div class="ctl" class:ctl-hidden={!visible('order')}>
+  <p class="ctl-label">{t.ui.orderControlLabel}</p>
+  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.order}>
+    <option value="-1">order: -1</option>
+    <option value="0">order: 0</option>
+    <option value="1">order: 1</option>
+    <option value="5">order: 5</option>
+  </select>
+</div>
+
+<div class="ctl" class:ctl-hidden={!visible('subgrid')}>
+  <p class="ctl-label">{t.ui.subgridControlLabel}</p>
+  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.subgridMode}>
+    <option value="own">{t.options.subgridOwn}</option>
+    <option value="subgrid">{t.options.subgridSubgrid}</option>
   </select>
 </div>

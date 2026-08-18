@@ -1,6 +1,11 @@
 import type { Translation } from '../types';
 
 export const en: Translation = {
+  seo: {
+    title: 'Comic Grid Studio — Learn CSS Grid by Building a Comic',
+    description:
+      'Learn CSS Grid interactively by laying out comic book panels: fr units, auto-fit vs auto-fill, minmax(), grid-template-areas, subgrid and more, across 18 hands-on levels.'
+  },
   ui: {
     appTitle: 'Comic Grid Studio',
     helpBtn: '? How to play',
@@ -18,6 +23,10 @@ export const en: Translation = {
     placecontentControlLabel: 'place-content (align+justify-content)',
     placeselfControlLabel: 'place-self (hero only)',
     areasControlLabel: 'grid-template-areas layout',
+    justifyselfControlLabel: 'justify-self (horizontal)',
+    alignselfControlLabel: 'align-self (vertical)',
+    orderControlLabel: 'order (chase panel)',
+    subgridControlLabel: "hero's inner grid-template-columns",
     captainSays: 'Captain Cascade says:',
     defaultHint: 'Turn the controls above — the code and preview on the right update live.',
     toggleLines: 'Grid lines',
@@ -26,6 +35,8 @@ export const en: Translation = {
     legendHero: 'Hero (stretched panel)',
     legendNormal: 'Regular action panels',
     footerText: 'Comic Grid Studio — learn CSS Grid by assembling a comic, level by level.',
+    footerCreatedBy: 'Created by',
+    footerOpenSource: 'Open source on GitHub',
     successBurst: 'LEVEL\nCLEARED!',
     successTitle: 'KABOOM!\nGrid aligned!',
     successBody: "Panels snapped in perfectly. Here's this level's CSS:",
@@ -43,12 +54,13 @@ export const en: Translation = {
       'The "Level" dropdown up top lets you jump between levels any time.'
     ],
     helpTopics:
-      'Topics: display:grid, fr / repeat(), gap, auto-fit vs auto-fill, minmax(), grid-column/row span, negative line indexes, grid-auto-flow: dense, grid-auto-rows (implicit grid), place-items, place-content, place-self, grid-template-areas.',
+      'Topics: display:grid, fr / repeat(), gap, auto-fit vs auto-fill, minmax(), grid-column/row span, negative line indexes, grid-auto-flow: dense, grid-auto-rows (implicit grid), place-items, place-content, place-self, grid-template-areas, justify-self / align-self, order, subgrid. Not covered: manual @media breakpoints (auto-fit/minmax replaces most of that need) and the grid-template shorthand (it just combines properties you already know).',
     helpCloseBtn: "Got it, let's go!",
     levelSelectLabel: 'Level select',
     levelWord: 'Level',
     languageLabel: 'Language',
-    areaComment: 'plus sidebar / main / footer for the rest'
+    areaComment: 'plus sidebar / main / footer for the rest',
+    mdnLinkLabel: 'Read on MDN'
   },
   options: {
     fitFixed: 'fixed columns (1fr)',
@@ -60,7 +72,9 @@ export const en: Translation = {
     heroToLastLine: 'to line -1',
     areaHoly: 'header on top / sidebar left / main / footer bottom',
     areaStack: 'everything stacked (header/sidebar/main/footer)',
-    areaRight: 'header on top / sidebar on the RIGHT / main / footer bottom'
+    areaRight: 'header on top / sidebar on the RIGHT / main / footer bottom',
+    subgridOwn: "own columns (repeat(2, 1fr))",
+    subgridSubgrid: 'subgrid (inherit parent tracks)'
   },
   hints: {
     fixed: 'Fixed columns (repeat(N, 1fr)) — predictable layout, flexibly divides the available space.',
@@ -139,6 +153,21 @@ export const en: Translation = {
       concept: 'grid-template-areas',
       goal: 'Build a classic page layout: header on top full width, sidebar on the LEFT, main in the center, footer on the bottom full width — using named areas.',
       hint: "Pick the first option: 'header on top / sidebar left / main / footer bottom'."
+    },
+    {
+      concept: 'justify-self / align-self',
+      goal: 'place-self is shorthand for align-self (vertical) + justify-self (horizontal). Set them independently on the hero: justify-self: end and align-self: start.',
+      hint: 'Set justify-self to end and align-self to start.'
+    },
+    {
+      concept: 'order',
+      goal: "The Chase panel is 2nd in the HTML but should visually jump in front of the hero. Give it order: -1 — the DOM stays untouched, only the visual order changes.",
+      hint: 'Set order to -1 on the Chase panel.'
+    },
+    {
+      concept: 'subgrid',
+      goal: "The hero has 2 inner blocks that should line up exactly with the page's own (uneven) column lines. Set the hero's grid-template-columns to subgrid so its blocks inherit the parent's real track sizes instead of making up their own equal halves.",
+      hint: "Switch the hero's inner columns to subgrid."
     },
     {
       concept: 'final splash page: everything together',

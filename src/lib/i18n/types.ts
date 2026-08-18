@@ -7,6 +7,10 @@ export interface LevelContent {
 }
 
 export interface Translation {
+  seo: {
+    title: string;
+    description: string;
+  };
   ui: {
     appTitle: string;
     helpBtn: string;
@@ -24,6 +28,10 @@ export interface Translation {
     placecontentControlLabel: string;
     placeselfControlLabel: string;
     areasControlLabel: string;
+    justifyselfControlLabel: string;
+    alignselfControlLabel: string;
+    orderControlLabel: string;
+    subgridControlLabel: string;
     captainSays: string;
     defaultHint: string;
     toggleLines: string;
@@ -32,6 +40,8 @@ export interface Translation {
     legendHero: string;
     legendNormal: string;
     footerText: string;
+    footerCreatedBy: string;
+    footerOpenSource: string;
     successBurst: string;
     successTitle: string;
     successBody: string;
@@ -48,6 +58,7 @@ export interface Translation {
     levelWord: string;
     languageLabel: string;
     areaComment: string;
+    mdnLinkLabel: string;
   };
   options: {
     fitFixed: string;
@@ -60,6 +71,8 @@ export interface Translation {
     areaHoly: string;
     areaStack: string;
     areaRight: string;
+    subgridOwn: string;
+    subgridSubgrid: string;
   };
   hints: {
     fixed: string;

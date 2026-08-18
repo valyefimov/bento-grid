@@ -1,6 +1,11 @@
 import type { Translation } from '../types';
 
 export const es: Translation = {
+  seo: {
+    title: 'Comic Grid Studio — aprende CSS Grid creando un cómic',
+    description:
+      'Aprende CSS Grid de forma interactiva maquetando viñetas de cómic: unidades fr, auto-fit vs auto-fill, minmax(), grid-template-areas, subgrid y más, en 18 niveles prácticos.'
+  },
   ui: {
     appTitle: 'Comic Grid Studio',
     helpBtn: '? Cómo jugar',
@@ -18,6 +23,10 @@ export const es: Translation = {
     placecontentControlLabel: 'place-content (align+justify-content)',
     placeselfControlLabel: 'place-self (solo el héroe)',
     areasControlLabel: 'diseño grid-template-areas',
+    justifyselfControlLabel: 'justify-self (horizontal)',
+    alignselfControlLabel: 'align-self (vertical)',
+    orderControlLabel: 'order (panel de persecución)',
+    subgridControlLabel: 'grid-template-columns interno del héroe',
     captainSays: 'El Capitán Cascada dice:',
     defaultHint: 'Mueve los controles de arriba — el código y la vista previa de la derecha se actualizan en vivo.',
     toggleLines: 'Líneas de la cuadrícula',
@@ -26,6 +35,8 @@ export const es: Translation = {
     legendHero: 'Héroe (panel estirado)',
     legendNormal: 'Paneles de acción normales',
     footerText: 'Comic Grid Studio — aprende CSS Grid armando un cómic, nivel a nivel.',
+    footerCreatedBy: 'Creado por',
+    footerOpenSource: 'Código abierto en GitHub',
     successBurst: '¡NIVEL\nSUPERADO!',
     successTitle: '¡KABOOM!\n¡Cuadrícula alineada!',
     successBody: 'Los paneles encajaron perfectamente. Aquí está el CSS de este nivel:',
@@ -43,12 +54,13 @@ export const es: Translation = {
       'El menú "Nivel" de arriba te deja saltar entre niveles en cualquier momento.'
     ],
     helpTopics:
-      'Temas: display:grid, fr / repeat(), gap, auto-fit vs auto-fill, minmax(), grid-column/row span, índices de línea negativos, grid-auto-flow: dense, grid-auto-rows (cuadrícula implícita), place-items, place-content, place-self, grid-template-areas.',
+      'Temas: display:grid, fr / repeat(), gap, auto-fit vs auto-fill, minmax(), grid-column/row span, índices de línea negativos, grid-auto-flow: dense, grid-auto-rows (cuadrícula implícita), place-items, place-content, place-self, grid-template-areas, justify-self / align-self, order, subgrid. No cubierto: breakpoints manuales con @media (auto-fit/minmax cubre la mayoría de esos casos) y el atajo grid-template (solo combina propiedades que ya conoces).',
     helpCloseBtn: '¡Entendido, vamos!',
     levelSelectLabel: 'Selección de nivel',
     levelWord: 'Nivel',
     languageLabel: 'Idioma',
-    areaComment: 'y sidebar / main / footer en el resto'
+    areaComment: 'y sidebar / main / footer en el resto',
+    mdnLinkLabel: 'Leer en MDN'
   },
   options: {
     fitFixed: 'columnas fijas (1fr)',
@@ -60,7 +72,9 @@ export const es: Translation = {
     heroToLastLine: 'hasta line -1',
     areaHoly: 'header arriba / sidebar a la izquierda / main / footer abajo',
     areaStack: 'todo apilado (header/sidebar/main/footer)',
-    areaRight: 'header arriba / sidebar a la DERECHA / main / footer abajo'
+    areaRight: 'header arriba / sidebar a la DERECHA / main / footer abajo',
+    subgridOwn: 'columnas propias (repeat(2, 1fr))',
+    subgridSubgrid: 'subgrid (heredar las pistas del padre)'
   },
   hints: {
     fixed: 'Columnas fijas (repeat(N, 1fr)) — diseño predecible, divide el espacio disponible de forma flexible.',
@@ -139,6 +153,21 @@ export const es: Translation = {
       concept: 'grid-template-areas',
       goal: 'Crea un diseño de página clásico: header arriba a todo el ancho, sidebar a la IZQUIERDA, main en el centro, footer abajo a todo el ancho — usando áreas con nombre.',
       hint: 'Elige la primera opción: "header arriba / sidebar a la izquierda / main / footer abajo".'
+    },
+    {
+      concept: 'justify-self / align-self',
+      goal: 'place-self es la forma corta de align-self (vertical) + justify-self (horizontal). Configúralos por separado en el héroe: justify-self: end y align-self: start.',
+      hint: 'Pon justify-self en end y align-self en start.'
+    },
+    {
+      concept: 'order',
+      goal: 'El panel de Persecución es el 2º en el HTML pero visualmente debe saltar delante del héroe. Dale order: -1 — el DOM no cambia, solo el orden visual.',
+      hint: 'Pon order: -1 en el panel de Persecución.'
+    },
+    {
+      concept: 'subgrid',
+      goal: 'El héroe tiene 2 bloques internos que deben alinearse exactamente con las líneas de columna reales (desiguales) de la página. Pon el grid-template-columns del héroe en subgrid para que sus bloques hereden los tamaños reales de las pistas del padre en vez de inventar sus propias mitades iguales.',
+      hint: 'Cambia las columnas internas del héroe a subgrid.'
     },
     {
       concept: 'página final: todo junto',

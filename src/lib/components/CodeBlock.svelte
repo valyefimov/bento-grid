@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { localeStore } from '../../i18n/index.svelte';
-  import { LEVELS } from '../../data/levels';
-  import { game } from '../../state/gameState.svelte';
-  import { buildCodeHtml } from '../../lib/gridEngine';
+  import { localeStore } from '$lib/i18n/index.svelte';
+  import { LEVELS } from '$lib/data/levels';
+  import { game } from '$lib/state/gameState.svelte';
+  import { buildCodeHtml } from '$lib/gridEngine';
 
   let t = $derived(localeStore.t);
   let level = $derived(LEVELS[game.levelIdx]!);

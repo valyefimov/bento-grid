@@ -1,5 +1,5 @@
-import { AREA_PRESETS } from '../data/areaPresets';
-import type { AreaPresetKey, ControlValues, Level, LevelTarget } from '../types';
+import { AREA_PRESETS } from './data/areaPresets';
+import type { AreaPresetKey, ControlValues, Level, LevelTarget } from './types';
 
 function areaPreset(key: string) {
   return AREA_PRESETS[key as AreaPresetKey];
@@ -29,6 +29,10 @@ export function checkLevel(target: LevelTarget, values: ControlValues): boolean 
   if (target.placeContent !== undefined && values.placeContent !== target.placeContent) return false;
   if (target.placeSelf !== undefined && values.placeSelf !== target.placeSelf) return false;
   if (target.areasPreset !== undefined && values.areasPreset !== target.areasPreset) return false;
+  if (target.justifySelf !== undefined && values.justifySelf !== target.justifySelf) return false;
+  if (target.alignSelf !== undefined && values.alignSelf !== target.alignSelf) return false;
+  if (target.order !== undefined && values.order !== target.order) return false;
+  if (target.subgridMode !== undefined && values.subgridMode !== target.subgridMode) return false;
   return true;
 }
 
@@ -44,7 +48,9 @@ export interface CodeLabels {
 
 export function buildCodeHtml(level: Level, values: ControlValues, levelNum: number, labels: CodeLabels): string {
   const areasMode = level.mode === 'areas';
-  const colsCss = areasMode ? areaPreset(values.areasPreset).cols : computeColumnsCss(values);
+  const colsCss = areasMode
+    ? areaPreset(values.areasPreset).cols
+    : (level.customColumns ?? computeColumnsCss(values));
   const rowsCss = areasMode ? areaPreset(values.areasPreset).rows : '';
   const gap = values.gap + 'px';
   const c = level.controls;
@@ -76,6 +82,12 @@ export function buildCodeHtml(level: Level, values: ControlValues, levelNum: num
   const heroSelector = areasMode ? '<span class="sel">.header</span>' : '<span class="sel">.panel-action.hero</span>';
   if (areasMode) {
     panelLines += `  <span class="prop">grid-area</span>: <span class="val">header</span>; <span class="cmt">/* ${labels.areaComment} */</span>\n`;
+  } else if (c.includes('order')) {
+    panelLines = `  <span class="prop">order</span>: <span class="val">${values.order}</span>;\n`;
+  } else if (c.includes('subgrid')) {
+    panelLines += `  <span class="prop">display</span>: <span class="val">grid</span>;\n`;
+    panelLines += `  <span class="prop">grid-column</span>: <span class="val">${spanValue(values.heroCol)}</span>;\n`;
+    panelLines += `  <span class="prop">grid-template-columns</span>: <span class="val">${values.subgridMode === 'subgrid' ? 'subgrid' : 'repeat(2, 1fr)'}</span>;\n`;
   } else {
     panelLines += `  <span class="prop">grid-column</span>: <span class="val">${spanValue(values.heroCol)}</span>;\n`;
     panelLines += `  <span class="prop">grid-row</span>: <span class="val">span ${values.heroRow}</span>;\n`;
@@ -83,10 +95,22 @@ export function buildCodeHtml(level: Level, values: ControlValues, levelNum: num
   if (c.includes('placeself')) {
     panelLines += `  <span class="prop">place-self</span>: <span class="val">${values.placeSelf}</span>;\n`;
   }
+  if (c.includes('justifyself')) {
+    panelLines += `  <span class="prop">justify-self</span>: <span class="val">${values.justifySelf}</span>;\n`;
+  }
+  if (c.includes('alignself')) {
+    panelLines += `  <span class="prop">align-self</span>: <span class="val">${values.alignSelf}</span>;\n`;
+  }
+
+  const selector = c.includes('order')
+    ? '<span class="sel">.panel-action.chase</span>'
+    : c.includes('subgrid')
+      ? '<span class="sel">.panel-action.hero</span>'
+      : heroSelector;
 
   return (
     `<span class="cmt">/* ${labels.levelWord} ${levelNum}: ${labels.concept} */</span>\n` +
     `<span class="sel">.comic-grid</span> {\n${gridLines}}\n\n` +
-    `${heroSelector} {\n${panelLines}}`
+    `${selector} {\n${panelLines}}`
   );
 }

@@ -1,6 +1,11 @@
 import type { Translation } from '../types';
 
 export const ru: Translation = {
+  seo: {
+    title: 'Comic Grid Studio — учи CSS Grid, собирая комикс',
+    description:
+      'Интерактивное обучение CSS Grid через раскладку панелей комикса: fr-единицы, auto-fit vs auto-fill, minmax(), grid-template-areas, subgrid и другое — 18 практических уровней.'
+  },
   ui: {
     appTitle: 'Comic Grid Studio',
     helpBtn: '? Как играть',
@@ -18,6 +23,10 @@ export const ru: Translation = {
     placecontentControlLabel: 'place-content (align+justify-content)',
     placeselfControlLabel: 'place-self (только герой)',
     areasControlLabel: 'grid-template-areas раскладка',
+    justifyselfControlLabel: 'justify-self (по горизонтали)',
+    alignselfControlLabel: 'align-self (по вертикали)',
+    orderControlLabel: 'order (панель погони)',
+    subgridControlLabel: 'внутренний grid-template-columns героя',
     captainSays: 'Капитан Каскад говорит:',
     defaultHint: 'Крути контролы выше — код и превью справа обновляются вживую.',
     toggleLines: 'Линии сетки',
@@ -26,6 +35,8 @@ export const ru: Translation = {
     legendHero: 'Герой (растянутая панель)',
     legendNormal: 'Обычные панели действия',
     footerText: 'Comic Grid Studio — учи CSS Grid, собирая комикс, уровень за уровнем.',
+    footerCreatedBy: 'Автор:',
+    footerOpenSource: 'Open source на GitHub',
     successBurst: 'УРОВЕНЬ\nПРОЙДЕН!',
     successTitle: 'КАБУМ!\nСетка выровнена!',
     successBody: 'Панели легли идеально. Вот твой CSS этого уровня:',
@@ -43,12 +54,13 @@ export const ru: Translation = {
       'Дропдаун "Уровень" сверху — можно прыгать между уровнями в любой момент.'
     ],
     helpTopics:
-      'Темы: display:grid, fr / repeat(), gap, auto-fit vs auto-fill, minmax(), grid-column/row span, отрицательные line-индексы, grid-auto-flow: dense, grid-auto-rows (неявная сетка), place-items, place-content, place-self, grid-template-areas.',
+      'Темы: display:grid, fr / repeat(), gap, auto-fit vs auto-fill, minmax(), grid-column/row span, отрицательные line-индексы, grid-auto-flow: dense, grid-auto-rows (неявная сетка), place-items, place-content, place-self, grid-template-areas, justify-self / align-self, order, subgrid. Не покрыто: ручные @media-брейкпоинты (auto-fit/minmax закрывает большинство таких случаев) и шорткат grid-template (просто объединяет уже знакомые свойства).',
     helpCloseBtn: 'Понял, поехали!',
     levelSelectLabel: 'Выбор уровня',
     levelWord: 'Уровень',
     languageLabel: 'Язык',
-    areaComment: 'и sidebar / main / footer у остальных'
+    areaComment: 'и sidebar / main / footer у остальных',
+    mdnLinkLabel: 'Читать на MDN'
   },
   options: {
     fitFixed: 'фикс. колонки (1fr)',
@@ -60,7 +72,9 @@ export const ru: Translation = {
     heroToLastLine: 'до line -1',
     areaHoly: 'header сверху / sidebar слева / main / footer снизу',
     areaStack: 'всё в один столбик (header/sidebar/main/footer)',
-    areaRight: 'header сверху / sidebar СПРАВА / main / footer снизу'
+    areaRight: 'header сверху / sidebar СПРАВА / main / footer снизу',
+    subgridOwn: 'свои колонки (repeat(2, 1fr))',
+    subgridSubgrid: 'subgrid (наследовать треки родителя)'
   },
   hints: {
     fixed: 'Фиксированные колонки (repeat(N, 1fr)) — предсказуемая раскладка, гибко делит доступное место.',
@@ -139,6 +153,21 @@ export const ru: Translation = {
       concept: 'grid-template-areas',
       goal: 'Собери классическую раскладку страницы: header сверху во всю ширину, sidebar СЛЕВА, main по центру, footer снизу во всю ширину — через именованные области.',
       hint: 'Выбери первый вариант: "header сверху / sidebar слева / main / footer снизу".'
+    },
+    {
+      concept: 'justify-self / align-self',
+      goal: 'place-self — это шорткат для align-self (вертикаль) + justify-self (горизонталь). Задай их героям отдельно: justify-self: end и align-self: start.',
+      hint: 'Поставь justify-self: end и align-self: start.'
+    },
+    {
+      concept: 'order',
+      goal: 'Панель "Погоня" вторая в HTML, но визуально должна оказаться перед героем. Дай ей order: -1 — DOM не трогаем, меняется только видимый порядок.',
+      hint: 'Поставь панели "Погоня" order: -1.'
+    },
+    {
+      concept: 'subgrid',
+      goal: 'У героя 2 внутренних блока, которые должны точно совпасть с реальными (неравными) линиями колонок страницы. Поставь герою grid-template-columns: subgrid, чтобы его блоки унаследовали настоящие размеры треков родителя вместо своих собственных равных половинок.',
+      hint: 'Переключи внутренние колонки героя на subgrid.'
     },
     {
       concept: 'финальный разворот: всё вместе',

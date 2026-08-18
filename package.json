@@ -3,13 +3,22 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": "Valentyn Yefimov",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valyefimov/bento-grid"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "svelte-check --tsconfig ./tsconfig.json && vite build",
+    "dev": "vite dev",
+    "build": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "prepare": "svelte-kit sync"
   },
   "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.70.3",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "svelte": "^5.1.9",
     "svelte-check": "^4.0.5",

@@ -1,6 +1,11 @@
 import type { Translation } from '../types';
 
 export const de: Translation = {
+  seo: {
+    title: 'Comic Grid Studio — CSS Grid lernen durch Comic-Bau',
+    description:
+      'Lerne CSS Grid interaktiv beim Layouten von Comic-Panels: fr-Einheiten, auto-fit vs auto-fill, minmax(), grid-template-areas, subgrid und mehr — in 18 praktischen Levels.'
+  },
   ui: {
     appTitle: 'Comic Grid Studio',
     helpBtn: '? Spielanleitung',
@@ -18,6 +23,10 @@ export const de: Translation = {
     placecontentControlLabel: 'place-content (align+justify-content)',
     placeselfControlLabel: 'place-self (nur Hero)',
     areasControlLabel: 'grid-template-areas Layout',
+    justifyselfControlLabel: 'justify-self (horizontal)',
+    alignselfControlLabel: 'align-self (vertikal)',
+    orderControlLabel: 'order (Verfolgungs-Panel)',
+    subgridControlLabel: 'inneres grid-template-columns des Hero',
     captainSays: 'Captain Kaskade sagt:',
     defaultHint: 'Bediene die Regler oben — Code und Vorschau rechts aktualisieren sich live.',
     toggleLines: 'Rasterlinien',
@@ -26,6 +35,8 @@ export const de: Translation = {
     legendHero: 'Hero (gedehntes Panel)',
     legendNormal: 'Normale Action-Panels',
     footerText: 'Comic Grid Studio — lerne CSS Grid, indem du Level für Level einen Comic zusammenbaust.',
+    footerCreatedBy: 'Erstellt von',
+    footerOpenSource: 'Open Source auf GitHub',
     successBurst: 'LEVEL\nGESCHAFFT!',
     successTitle: 'KABUMM!\nRaster ausgerichtet!',
     successBody: 'Die Panels sitzen perfekt. Hier ist das CSS dieses Levels:',
@@ -43,12 +54,13 @@ export const de: Translation = {
       'Das "Level"-Dropdown oben lässt dich jederzeit zwischen Levels springen.'
     ],
     helpTopics:
-      'Themen: display:grid, fr / repeat(), gap, auto-fit vs auto-fill, minmax(), grid-column/row span, negative line-Indizes, grid-auto-flow: dense, grid-auto-rows (implizites Grid), place-items, place-content, place-self, grid-template-areas.',
+      'Themen: display:grid, fr / repeat(), gap, auto-fit vs auto-fill, minmax(), grid-column/row span, negative line-Indizes, grid-auto-flow: dense, grid-auto-rows (implizites Grid), place-items, place-content, place-self, grid-template-areas, justify-self / align-self, order, subgrid. Nicht abgedeckt: manuelle @media-Breakpoints (auto-fit/minmax deckt die meisten dieser Fälle ab) und die grid-template-Kurzschreibweise (kombiniert nur Eigenschaften, die du schon kennst).',
     helpCloseBtn: "Verstanden, los geht's!",
     levelSelectLabel: 'Levelauswahl',
     levelWord: 'Level',
     languageLabel: 'Sprache',
-    areaComment: 'plus sidebar / main / footer für den Rest'
+    areaComment: 'plus sidebar / main / footer für den Rest',
+    mdnLinkLabel: 'Auf MDN lesen'
   },
   options: {
     fitFixed: 'feste Spalten (1fr)',
@@ -60,7 +72,9 @@ export const de: Translation = {
     heroToLastLine: 'bis line -1',
     areaHoly: 'Header oben / Sidebar links / Main / Footer unten',
     areaStack: 'alles gestapelt (Header/Sidebar/Main/Footer)',
-    areaRight: 'Header oben / Sidebar RECHTS / Main / Footer unten'
+    areaRight: 'Header oben / Sidebar RECHTS / Main / Footer unten',
+    subgridOwn: 'eigene Spalten (repeat(2, 1fr))',
+    subgridSubgrid: 'subgrid (Spuren des Elternelements erben)'
   },
   hints: {
     fixed: 'Feste Spalten (repeat(N, 1fr)) — vorhersehbares Layout, teilt den verfügbaren Platz flexibel auf.',
@@ -139,6 +153,21 @@ export const de: Translation = {
       concept: 'grid-template-areas',
       goal: 'Baue ein klassisches Seitenlayout: Header oben über die volle Breite, Sidebar LINKS, Main in der Mitte, Footer unten über die volle Breite — mit benannten Bereichen.',
       hint: 'Wähle die erste Option: "Header oben / Sidebar links / Main / Footer unten".'
+    },
+    {
+      concept: 'justify-self / align-self',
+      goal: 'place-self ist die Kurzform für align-self (vertikal) + justify-self (horizontal). Setze sie beim Hero unabhängig voneinander: justify-self: end und align-self: start.',
+      hint: 'Setze justify-self auf end und align-self auf start.'
+    },
+    {
+      concept: 'order',
+      goal: 'Das Verfolgungs-Panel steht im HTML an zweiter Stelle, soll aber visuell vor dem Hero erscheinen. Gib ihm order: -1 — das DOM bleibt unverändert, nur die visuelle Reihenfolge ändert sich.',
+      hint: 'Setze beim Verfolgungs-Panel order auf -1.'
+    },
+    {
+      concept: 'subgrid',
+      goal: 'Der Hero hat 2 innere Blöcke, die genau mit den echten (ungleichen) Spaltenlinien der Seite übereinstimmen sollen. Setze grid-template-columns des Hero auf subgrid, damit seine Blöcke die echten Spurgrößen des Elternelements erben, statt eigene gleiche Hälften zu bilden.',
+      hint: 'Schalte die inneren Spalten des Hero auf subgrid um.'
     },
     {
       concept: 'finale Splash-Seite: alles zusammen',
