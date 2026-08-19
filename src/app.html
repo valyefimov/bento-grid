@@ -4,9 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+    <style>
+      #sveltekit-body {
+        display: contents;
+      }
+    </style>
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">
-    <div style="display: contents">%sveltekit.body%</div>
+    <div id="sveltekit-body">%sveltekit.body%</div>
   </body>
 </html>
