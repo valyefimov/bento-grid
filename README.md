@@ -1,7 +1,5 @@
 <img width="1252" height="1074" alt="image" src="https://github.com/user-attachments/assets/5e9b30c6-ed1a-4a6f-b03e-b872fd452343" />
 
-**Live: https://bento-grid.yefimov.tech/en/**
-
 # Comic Grid Studio
 
 **Live: https://bento-grid.yefimov.tech/en/**
@@ -25,7 +23,7 @@ Each level also links straight to the relevant MDN page — in the language you'
 - **`adapter-static`** — fully prerendered, zero server at runtime
 - **Vite** for the dev loop
 
-No CSS framework. The CSS *is* the point.
+No CSS framework. The CSS _is_ the point.
 
 ## Internationalization
 
@@ -83,7 +81,7 @@ src/
     mdn.ts                  per-locale MDN link builder
 ```
 
-Level *content* (goal/hint/concept text) lives in `i18n/locales/*.ts`; level *structure* (which controls are visible, what counts as solved) lives in `data/levels.ts`, same array index. Keep them in sync if you add a level — nothing will crash if you forget, it'll just quietly show the wrong instructions, which is somehow worse.
+Level _content_ (goal/hint/concept text) lives in `i18n/locales/*.ts`; level _structure_ (which controls are visible, what counts as solved) lives in `data/levels.ts`, same array index. Keep them in sync if you add a level — nothing will crash if you forget, it'll just quietly show the wrong instructions, which is somehow worse.
 
 ## License
 
