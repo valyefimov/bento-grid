@@ -41,22 +41,40 @@
 
   let t = $derived(localeStore.t);
   let canonicalUrl = $derived(`${SITE_URL}/${data.lang}/`);
+  let ogImageUrl = $derived(`${SITE_URL}/og-image.png`);
 </script>
 
 <svelte:head>
   <title>{TRANSLATIONS[data.lang].seo.title}</title>
   <meta name="description" content={TRANSLATIONS[data.lang].seo.description} />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href={canonicalUrl} />
   {#each LOCALES as locale (locale)}
     <link rel="alternate" hreflang={locale} href={`${SITE_URL}/${locale}/`} />
   {/each}
   <link rel="alternate" hreflang="x-default" href={`${SITE_URL}/en/`} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Comic Grid Studio" />
+  <meta property="og:title" content={TRANSLATIONS[data.lang].seo.title} />
+  <meta property="og:description" content={TRANSLATIONS[data.lang].seo.description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content={data.lang} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={TRANSLATIONS[data.lang].seo.title} />
+  <meta name="twitter:description" content={TRANSLATIONS[data.lang].seo.description} />
+  <meta name="twitter:image" content={ogImageUrl} />
 </svelte:head>
 
 {#key data.lang}
   <Header />
 
   <main>
+    <h1 class="visually-hidden">{TRANSLATIONS[data.lang].seo.title}</h1>
     <section class="panel-frame">
       <h2>{t.ui.workspaceHeading}</h2>
       <GoalCard />
@@ -84,3 +102,17 @@
   <SuccessModal />
   <HelpModal />
 {/key}
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

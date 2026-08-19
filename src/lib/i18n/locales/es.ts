@@ -4,7 +4,7 @@ export const es: Translation = {
   seo: {
     title: 'Comic Grid Studio — aprende CSS Grid creando un cómic',
     description:
-      'Aprende CSS Grid de forma interactiva maquetando viñetas de cómic: unidades fr, auto-fit vs auto-fill, minmax(), grid-template-areas, subgrid y más, en 18 niveles prácticos.'
+      'Aprende CSS Grid maquetando viñetas de cómic: unidades fr, auto-fit vs auto-fill, minmax(), grid-template-areas, subgrid y más, en 18 niveles prácticos.'
   },
   ui: {
     appTitle: 'Comic Grid Studio',

@@ -4,7 +4,7 @@ export const en: Translation = {
   seo: {
     title: 'Comic Grid Studio — Learn CSS Grid by Building a Comic',
     description:
-      'Learn CSS Grid interactively by laying out comic book panels: fr units, auto-fit vs auto-fill, minmax(), grid-template-areas, subgrid and more, across 18 hands-on levels.'
+      'Learn CSS Grid by laying out comic panels: fr units, auto-fit vs auto-fill, minmax(), grid-template-areas, subgrid and more across 18 hands-on levels.'
   },
   ui: {
     appTitle: 'Comic Grid Studio',

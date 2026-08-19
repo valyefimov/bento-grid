@@ -4,6 +4,8 @@
 
 # Comic Grid Studio
 
+**Live: https://bento-grid.yefimov.tech/en/**
+
 Learn CSS Grid by drawing a comic book. No tutorials, no walls of text — you turn knobs, the panels rearrange, and either the page looks glorious or it collapses into a Jackson Pollock painting. 18 levels, from `display: grid` to `subgrid`, in 5 languages, indexed by Google, and it survives a page reload without forgetting who you are.
 
 Built because "just read the MDN docs" is correct advice that nobody follows.
