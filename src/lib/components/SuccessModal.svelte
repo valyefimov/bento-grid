@@ -4,6 +4,7 @@
   import { ui } from '$lib/state/uiState.svelte';
 
   let t = $derived(localeStore.t);
+  let isFinalLevel = $derived(game.levelIdx === TOTAL_LEVELS - 1);
 
   function close(): void {
     ui.successModalOpen = false;
@@ -15,6 +16,11 @@
     ui.resetToggles();
     ui.resetFeedback();
     close();
+  }
+
+  function viewCertificate(): void {
+    close();
+    ui.certificateModalOpen = true;
   }
 
   function onOverlayClick(e: MouseEvent): void {
@@ -31,7 +37,11 @@
       <pre>{ui.successCode}</pre>
       <div class="modal-actions">
         <button class="btn ghost" onclick={close}>{t.ui.closeBtn}</button>
-        <button class="btn" onclick={next}>{t.ui.nextLevelBtn}</button>
+        {#if isFinalLevel}
+          <button class="btn" onclick={viewCertificate}>{t.ui.viewCertificateBtn}</button>
+        {:else}
+          <button class="btn" onclick={next}>{t.ui.nextLevelBtn}</button>
+        {/if}
       </div>
     </div>
   </div>

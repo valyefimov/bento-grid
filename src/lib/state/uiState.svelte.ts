@@ -3,6 +3,7 @@ type FeedbackKind = 'ok' | 'err' | null;
 class UiState {
   successModalOpen = $state(false);
   successCode = $state('');
+  certificateModalOpen = $state(false);
   helpModalOpen = $state(false);
   feedbackKind = $state<FeedbackKind>(null);
   feedbackText = $state('');

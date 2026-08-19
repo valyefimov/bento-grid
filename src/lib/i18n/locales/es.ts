@@ -28,7 +28,8 @@ export const es: Translation = {
     orderControlLabel: 'order (panel de persecución)',
     subgridControlLabel: 'grid-template-columns interno del héroe',
     captainSays: 'El Capitán Cascada dice:',
-    defaultHint: 'Mueve los controles de arriba — el código y la vista previa de la derecha se actualizan en vivo.',
+    defaultHint:
+      'Mueve los controles de arriba — el código y la vista previa de la derecha se actualizan en vivo.',
     toggleLines: 'Líneas de la cuadrícula',
     toggleNeg1: 'line -1',
     toggleNeg2: 'line -2',
@@ -42,8 +43,15 @@ export const es: Translation = {
     successBody: 'Los paneles encajaron perfectamente. Aquí está el CSS de este nivel:',
     closeBtn: 'Cerrar',
     nextLevelBtn: 'Siguiente nivel ▶',
+    viewCertificateBtn: 'Obtener certificado ▶',
     successFeedback: '¡Sí! La cuadrícula está bien armada.',
     errorFeedbackPrefix: 'Todavía no: ',
+    certificateBurst: '¡MAESTRO\nDE GRID!',
+    certificateTitle: 'CERTIFICADO\nDE MAESTRÍA EN GRID',
+    certificateBody:
+      'Esto certifica que domaste 18 viñetas, sobreviviste a subgrid casi sin llorar, y ahora usas "fr" en conversaciones normales. minmax() te saluda.',
+    certificateSignature: 'Firmado, Capitán Cascade, Inspector Jefe de Viñetas',
+    certificateCloseBtn: 'Cerrar',
     helpBurst: '¡LEE\nESTO!',
     helpTitle: 'Cómo jugar',
     helpSteps: [
@@ -77,12 +85,24 @@ export const es: Translation = {
     subgridSubgrid: 'subgrid (heredar las pistas del padre)'
   },
   hints: {
-    fixed: 'Columnas fijas (repeat(N, 1fr)) — diseño predecible, divide el espacio disponible de forma flexible.',
+    fixed:
+      'Columnas fijas (repeat(N, 1fr)) — diseño predecible, divide el espacio disponible de forma flexible.',
     px: 'Las columnas en px no se estiran con el contenedor — el espacio sobrante es justo para lo que sirve place-content.',
-    'auto-fit': 'auto-fit colapsa las columnas vacías a cero — los paneles se estiran para llenar el ancho de la página.',
-    'auto-fill': "auto-fill mantiene vivos los 'huecos' de columna vacíos, incluso sin paneles dentro."
+    'auto-fit':
+      'auto-fit colapsa las columnas vacías a cero — los paneles se estiran para llenar el ancho de la página.',
+    'auto-fill':
+      "auto-fill mantiene vivos los 'huecos' de columna vacíos, incluso sin paneles dentro."
   },
-  panelTags: ['¡BUM!', '¡Persecución!', '"¡Alto!"', 'Salto', 'Explosión', 'Final', 'Bono', 'Créditos'],
+  panelTags: [
+    '¡BUM!',
+    '¡Persecución!',
+    '"¡Alto!"',
+    'Salto',
+    'Explosión',
+    'Final',
+    'Bono',
+    'Créditos'
+  ],
   levels: [
     {
       concept: 'display: grid + repeat()/fr',

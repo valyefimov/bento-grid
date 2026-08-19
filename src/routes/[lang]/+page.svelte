@@ -4,7 +4,11 @@
   import { browser } from '$app/environment';
   import { LOCALES, TRANSLATIONS, localeStore } from '$lib/i18n/index.svelte';
   import { ui } from '$lib/state/uiState.svelte';
-  import { loadLevel, levelIdxFromSearch, hydrateCompletedFromStorage } from '$lib/state/gameState.svelte';
+  import {
+    loadLevel,
+    levelIdxFromSearch,
+    hydrateCompletedFromStorage
+  } from '$lib/state/gameState.svelte';
   import { SITE_URL } from '$lib/seo';
   import Header from '$lib/components/Header.svelte';
   import GoalCard from '$lib/components/GoalCard.svelte';
@@ -13,6 +17,7 @@
   import HintCard from '$lib/components/HintCard.svelte';
   import ComicPreview from '$lib/components/ComicPreview.svelte';
   import SuccessModal from '$lib/components/SuccessModal.svelte';
+  import CertificateModal from '$lib/components/CertificateModal.svelte';
   import HelpModal from '$lib/components/HelpModal.svelte';
 
   let { data } = $props();
@@ -100,6 +105,7 @@
   </footer>
 
   <SuccessModal />
+  <CertificateModal />
   <HelpModal />
 {/key}
 

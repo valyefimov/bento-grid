@@ -42,12 +42,18 @@
   </div>
   <div class="header-controls">
     <LanguageSwitcher />
-    <select aria-label={localeStore.t.ui.levelSelectLabel} value={String(game.levelIdx + 1)} onchange={onLevelSelect}>
+    <select
+      aria-label={localeStore.t.ui.levelSelectLabel}
+      value={String(game.levelIdx + 1)}
+      onchange={onLevelSelect}
+    >
       {#each Array(totalLevels) as _, i (i)}
         <option value={String(i + 1)}>{localeStore.t.ui.levelWord} {i + 1}</option>
       {/each}
     </select>
-    <button class="btn ghost icon" onclick={() => (ui.helpModalOpen = true)}>{localeStore.t.ui.helpBtn}</button>
+    <button class="btn ghost icon" onclick={() => (ui.helpModalOpen = true)}
+      >{localeStore.t.ui.helpBtn}</button
+    >
     <button class="btn" onclick={runAction}>{localeStore.t.ui.runBtn}</button>
   </div>
 </header>

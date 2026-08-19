@@ -26,7 +26,8 @@ export function checkLevel(target: LevelTarget, values: ControlValues): boolean 
   if (target.autoFlow !== undefined && values.autoFlow !== target.autoFlow) return false;
   if (target.autoRows !== undefined && values.autoRows !== target.autoRows) return false;
   if (target.placeItems !== undefined && values.placeItems !== target.placeItems) return false;
-  if (target.placeContent !== undefined && values.placeContent !== target.placeContent) return false;
+  if (target.placeContent !== undefined && values.placeContent !== target.placeContent)
+    return false;
   if (target.placeSelf !== undefined && values.placeSelf !== target.placeSelf) return false;
   if (target.areasPreset !== undefined && values.areasPreset !== target.areasPreset) return false;
   if (target.justifySelf !== undefined && values.justifySelf !== target.justifySelf) return false;
@@ -46,7 +47,12 @@ export interface CodeLabels {
   areaComment: string;
 }
 
-export function buildCodeHtml(level: Level, values: ControlValues, levelNum: number, labels: CodeLabels): string {
+export function buildCodeHtml(
+  level: Level,
+  values: ControlValues,
+  levelNum: number,
+  labels: CodeLabels
+): string {
   const areasMode = level.mode === 'areas';
   const colsCss = areasMode
     ? areaPreset(values.areasPreset).cols
@@ -79,7 +85,9 @@ export function buildCodeHtml(level: Level, values: ControlValues, levelNum: num
   }
 
   let panelLines = '';
-  const heroSelector = areasMode ? '<span class="sel">.header</span>' : '<span class="sel">.panel-action.hero</span>';
+  const heroSelector = areasMode
+    ? '<span class="sel">.header</span>'
+    : '<span class="sel">.panel-action.hero</span>';
   if (areasMode) {
     panelLines += `  <span class="prop">grid-area</span>: <span class="val">header</span>; <span class="cmt">/* ${labels.areaComment} */</span>\n`;
   } else if (c.includes('order')) {

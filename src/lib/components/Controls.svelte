@@ -14,7 +14,9 @@
 
 <div class="ctl" class:ctl-hidden={!visible('gap')}>
   <label class="control-row" style="margin-bottom:0;">
-    <span style="display:flex; justify-content:space-between; font-weight:700; font-size:13px; text-transform:uppercase;">
+    <span
+      style="display:flex; justify-content:space-between; font-weight:700; font-size:13px; text-transform:uppercase;"
+    >
       {t.ui.gapControlLabel} <span style="color:var(--red);">{game.values.gap}px</span>
     </span>
     <input type="range" min="0" max="40" bind:value={game.values.gap} />
@@ -86,7 +88,10 @@
 
 <div class="ctl" class:ctl-hidden={!visible('placeitems')}>
   <p class="ctl-label">{t.ui.placeitemsControlLabel}</p>
-  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.placeItems}>
+  <select
+    style="width:100%; box-shadow:3px 3px 0 var(--black);"
+    bind:value={game.values.placeItems}
+  >
     <option value="stretch">stretch</option>
     <option value="start">start</option>
     <option value="center">center</option>
@@ -96,7 +101,10 @@
 
 <div class="ctl" class:ctl-hidden={!visible('placecontent')}>
   <p class="ctl-label">{t.ui.placecontentControlLabel}</p>
-  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.placeContent}>
+  <select
+    style="width:100%; box-shadow:3px 3px 0 var(--black);"
+    bind:value={game.values.placeContent}
+  >
     <option value="start">start</option>
     <option value="center">center</option>
     <option value="end">end</option>
@@ -116,7 +124,10 @@
 
 <div class="ctl" class:ctl-hidden={!visible('areas')}>
   <p class="ctl-label">{t.ui.areasControlLabel}</p>
-  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.areasPreset}>
+  <select
+    style="width:100%; box-shadow:3px 3px 0 var(--black);"
+    bind:value={game.values.areasPreset}
+  >
     <option value="holy">{t.options.areaHoly}</option>
     <option value="stack">{t.options.areaStack}</option>
     <option value="right">{t.options.areaRight}</option>
@@ -125,7 +136,10 @@
 
 <div class="ctl" class:ctl-hidden={!visible('justifyself')}>
   <p class="ctl-label">{t.ui.justifyselfControlLabel}</p>
-  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.justifySelf}>
+  <select
+    style="width:100%; box-shadow:3px 3px 0 var(--black);"
+    bind:value={game.values.justifySelf}
+  >
     <option value="stretch">stretch</option>
     <option value="start">start</option>
     <option value="center">center</option>
@@ -155,7 +169,10 @@
 
 <div class="ctl" class:ctl-hidden={!visible('subgrid')}>
   <p class="ctl-label">{t.ui.subgridControlLabel}</p>
-  <select style="width:100%; box-shadow:3px 3px 0 var(--black);" bind:value={game.values.subgridMode}>
+  <select
+    style="width:100%; box-shadow:3px 3px 0 var(--black);"
+    bind:value={game.values.subgridMode}
+  >
     <option value="own">{t.options.subgridOwn}</option>
     <option value="subgrid">{t.options.subgridSubgrid}</option>
   </select>

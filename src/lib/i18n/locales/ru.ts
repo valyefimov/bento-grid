@@ -42,8 +42,15 @@ export const ru: Translation = {
     successBody: 'Панели легли идеально. Вот твой CSS этого уровня:',
     closeBtn: 'Закрыть',
     nextLevelBtn: 'Следующий уровень ▶',
+    viewCertificateBtn: 'Получить сертификат ▶',
     successFeedback: 'Есть! Сетка собрана верно.',
     errorFeedbackPrefix: 'Пока не то: ',
+    certificateBurst: 'МАСТЕР\nСЕТКИ!',
+    certificateTitle: 'СЕРТИФИКАТ\nМАСТЕРА СЕТОК',
+    certificateBody:
+      'Настоящим удостоверяется, что вы подчинили себе 18 панелей, пережили subgrid почти без слёз и теперь используете "fr" в обычной речи. minmax() отдаёт вам честь.',
+    certificateSignature: 'Подписано: капитан Каскад, главный инспектор панелей',
+    certificateCloseBtn: 'Закрыть',
     helpBurst: 'ЧИТАЙ\nСЮДА!',
     helpTitle: 'Как играть',
     helpSteps: [
@@ -77,7 +84,8 @@ export const ru: Translation = {
     subgridSubgrid: 'subgrid (наследовать треки родителя)'
   },
   hints: {
-    fixed: 'Фиксированные колонки (repeat(N, 1fr)) — предсказуемая раскладка, гибко делит доступное место.',
+    fixed:
+      'Фиксированные колонки (repeat(N, 1fr)) — предсказуемая раскладка, гибко делит доступное место.',
     px: 'Колонки в px не тянутся под контейнер — свободный остаток как раз для place-content.',
     'auto-fit': 'auto-fit сжимает пустые колонки до нуля — панели тянутся на всю ширину страницы.',
     'auto-fill': 'auto-fill держит пустые "слоты" колонок живыми, даже без панелей внутри.'

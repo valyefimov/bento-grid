@@ -47,8 +47,14 @@ export interface Translation {
     successBody: string;
     closeBtn: string;
     nextLevelBtn: string;
+    viewCertificateBtn: string;
     successFeedback: string;
     errorFeedbackPrefix: string;
+    certificateBurst: string;
+    certificateTitle: string;
+    certificateBody: string;
+    certificateSignature: string;
+    certificateCloseBtn: string;
     helpBurst: string;
     helpTitle: string;
     helpSteps: string[];

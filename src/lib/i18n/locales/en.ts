@@ -42,8 +42,15 @@ export const en: Translation = {
     successBody: "Panels snapped in perfectly. Here's this level's CSS:",
     closeBtn: 'Close',
     nextLevelBtn: 'Next level ▶',
+    viewCertificateBtn: 'Get certificate ▶',
     successFeedback: 'Yes! Grid assembled correctly.',
     errorFeedbackPrefix: 'Not quite: ',
+    certificateBurst: 'GRID\nMASTER!',
+    certificateTitle: 'CERTIFICATE\nOF GRID MASTERY',
+    certificateBody:
+      'This certifies that you bent 18 panels to your will, survived subgrid without crying (much), and now use "fr" in casual conversation. minmax() salutes you.',
+    certificateSignature: 'Signed, Captain Cascade, Chief Panel Inspector',
+    certificateCloseBtn: 'Close',
     helpBurst: 'READ\nTHIS!',
     helpTitle: 'How to play',
     helpSteps: [
@@ -73,11 +80,12 @@ export const en: Translation = {
     areaHoly: 'header on top / sidebar left / main / footer bottom',
     areaStack: 'everything stacked (header/sidebar/main/footer)',
     areaRight: 'header on top / sidebar on the RIGHT / main / footer bottom',
-    subgridOwn: "own columns (repeat(2, 1fr))",
+    subgridOwn: 'own columns (repeat(2, 1fr))',
     subgridSubgrid: 'subgrid (inherit parent tracks)'
   },
   hints: {
-    fixed: 'Fixed columns (repeat(N, 1fr)) — predictable layout, flexibly divides the available space.',
+    fixed:
+      'Fixed columns (repeat(N, 1fr)) — predictable layout, flexibly divides the available space.',
     px: "Columns in px don't stretch with the container — leftover space is what place-content is for.",
     'auto-fit': 'auto-fit collapses empty columns to zero width — panels stretch to fill the page.',
     'auto-fill': "auto-fill keeps empty column 'slots' alive, even without panels inside."
@@ -86,7 +94,7 @@ export const en: Translation = {
   levels: [
     {
       concept: 'display: grid + repeat()/fr',
-      goal: "Build 3 equal columns. Pick \"fixed columns (1fr)\" and repeat(3, ...) — this is the base of grid-template-columns.",
+      goal: 'Build 3 equal columns. Pick "fixed columns (1fr)" and repeat(3, ...) — this is the base of grid-template-columns.',
       hint: 'You need "fixed columns (1fr)" mode and repeat(3, ...).'
     },
     {
@@ -161,7 +169,7 @@ export const en: Translation = {
     },
     {
       concept: 'order',
-      goal: "The Chase panel is 2nd in the HTML but should visually jump in front of the hero. Give it order: -1 — the DOM stays untouched, only the visual order changes.",
+      goal: 'The Chase panel is 2nd in the HTML but should visually jump in front of the hero. Give it order: -1 — the DOM stays untouched, only the visual order changes.',
       hint: 'Set order to -1 on the Chase panel.'
     },
     {

@@ -34,7 +34,8 @@ export const de: Translation = {
     toggleNeg2: 'line -2',
     legendHero: 'Hero (gedehntes Panel)',
     legendNormal: 'Normale Action-Panels',
-    footerText: 'Comic Grid Studio — lerne CSS Grid, indem du Level für Level einen Comic zusammenbaust.',
+    footerText:
+      'Comic Grid Studio — lerne CSS Grid, indem du Level für Level einen Comic zusammenbaust.',
     footerCreatedBy: 'Erstellt von',
     footerOpenSource: 'Open Source auf GitHub',
     successBurst: 'LEVEL\nGESCHAFFT!',
@@ -42,8 +43,15 @@ export const de: Translation = {
     successBody: 'Die Panels sitzen perfekt. Hier ist das CSS dieses Levels:',
     closeBtn: 'Schließen',
     nextLevelBtn: 'Nächstes Level ▶',
+    viewCertificateBtn: 'Zertifikat holen ▶',
     successFeedback: 'Ja! Das Raster ist korrekt aufgebaut.',
     errorFeedbackPrefix: 'Noch nicht ganz: ',
+    certificateBurst: 'RASTER-\nMEISTER!',
+    certificateTitle: 'ZERTIFIKAT\nDER RASTER-MEISTERSCHAFT',
+    certificateBody:
+      'Hiermit wird bestätigt, dass du 18 Panels bezwungen hast, subgrid fast ohne Tränen überlebt hast und jetzt "fr" im Alltag benutzt. minmax() salutiert dir.',
+    certificateSignature: 'Gezeichnet, Captain Cascade, Oberster Panel-Inspektor',
+    certificateCloseBtn: 'Schließen',
     helpBurst: 'LIES\nDAS!',
     helpTitle: 'Spielanleitung',
     helpSteps: [
@@ -77,12 +85,23 @@ export const de: Translation = {
     subgridSubgrid: 'subgrid (Spuren des Elternelements erben)'
   },
   hints: {
-    fixed: 'Feste Spalten (repeat(N, 1fr)) — vorhersehbares Layout, teilt den verfügbaren Platz flexibel auf.',
+    fixed:
+      'Feste Spalten (repeat(N, 1fr)) — vorhersehbares Layout, teilt den verfügbaren Platz flexibel auf.',
     px: 'Spalten in px passen sich nicht dem Container an — der Rest ist genau das, wofür place-content da ist.',
-    'auto-fit': 'auto-fit kollabiert leere Spalten auf null — Panels dehnen sich auf die volle Seitenbreite aus.',
+    'auto-fit':
+      'auto-fit kollabiert leere Spalten auf null — Panels dehnen sich auf die volle Seitenbreite aus.',
     'auto-fill': "auto-fill hält leere Spalten-'Slots' am Leben, auch ohne Panels darin."
   },
-  panelTags: ['BUMM!', 'Verfolgung!', '"Halt!"', 'Sprung', 'Explosion', 'Finale', 'Bonus', 'Abspann'],
+  panelTags: [
+    'BUMM!',
+    'Verfolgung!',
+    '"Halt!"',
+    'Sprung',
+    'Explosion',
+    'Finale',
+    'Bonus',
+    'Abspann'
+  ],
   levels: [
     {
       concept: 'display: grid + repeat()/fr',
