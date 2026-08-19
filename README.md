@@ -42,11 +42,11 @@ Routes are `/en/`, `/ru/`, `/uk/`, `/de/`, `/es/`, each fully prerendered with i
 ## Running it
 
 ```bash
-npm install
-npm run dev       # dev server
-npm run check     # svelte-kit sync + svelte-check
-npm run build     # typecheck + prerender everything into dist/
-npm run preview   # serve the production build locally
+pnpm install
+pnpm run dev       # dev server
+pnpm run check     # svelte-kit sync + svelte-check
+pnpm run build     # typecheck + prerender everything into dist/
+pnpm run preview   # serve the production build locally
 ```
 
 `dist/` is a plain folder of static files. Host it anywhere that can serve HTML — no Node process required in production.

@@ -20,19 +20,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
       - name: Build
         env:
           # Project Pages site lives at /<repo>/, not the domain root.
           BASE_PATH: /${{ github.event.repository.name }}
           VITE_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
-        run: npm run build
+        run: pnpm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
