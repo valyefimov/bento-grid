@@ -4,7 +4,7 @@
 
 **Live: https://bento-grid.yefimov.tech/en/**
 
-Learn CSS Grid by drawing a comic book. No tutorials, no walls of text — you turn knobs, the panels rearrange, and either the page looks glorious or it collapses into a Jackson Pollock painting. 18 levels, from `display: grid` to `subgrid`, in 5 languages, indexed by Google, and it survives a page reload without forgetting who you are.
+Learn CSS Grid by drawing a comic book. No tutorials, no walls of text: you turn knobs, the panels rearrange, and either the page looks glorious or it collapses into a Jackson Pollock painting. 18 levels, from `display: grid` to `subgrid`, in 5 languages, indexed by Google, and it survives a page reload without forgetting who you are.
 
 Built because "just read the MDN docs" is correct advice that nobody follows.
 
@@ -14,22 +14,22 @@ Built because "just read the MDN docs" is correct advice that nobody follows.
 
 Deliberately **not** covered: manual `@media` breakpoints (auto-fit/minmax quietly does that job better) and the `grid-template` shorthand (it's just three properties you already know wearing a trench coat). The in-app help modal says so out loud instead of pretending to be exhaustive.
 
-Each level also links straight to the relevant MDN page — in the language you're playing in, where MDN actually has one.
+Each level also links straight to the relevant MDN page, in the language you're playing in, where MDN actually has one.
 
 ## Stack
 
-- **SvelteKit 2 + Svelte 5** (runes) — components own their slice of state, no framework ceremony
+- **SvelteKit 2 + Svelte 5** (runes): components own their slice of state, no framework ceremony
 - **TypeScript**, strict, `noUncheckedIndexedAccess` and friends turned on
-- **`adapter-static`** — fully prerendered, zero server at runtime
+- **`adapter-static`**: fully prerendered, zero server at runtime
 - **Vite** for the dev loop
 
 No CSS framework. The CSS _is_ the point.
 
 ## Internationalization
 
-English, Russian, Ukrainian, German, Spanish. Every level's goal/hint/concept text, every UI label, and the MDN links are translated — not machine-translated placeholders, actual sentences.
+English, Russian, Ukrainian, German, Spanish. Every level's goal/hint/concept text, every UI label, and the MDN links are translated, not machine-translated placeholders, actual sentences.
 
-Routes are `/en/`, `/ru/`, `/uk/`, `/de/`, `/es/`, each fully prerendered with its own `<title>`, meta description, canonical URL, and `hreflang` alternates. `/` detects your browser language client-side and redirects; crawlers get a `<meta refresh>` to `/en/` so nobody's stuck staring at a blank page.
+Routes are `/en/`, `/ru/`, `/uk/`, `/de/`, `/es/`, each fully prerendered with its own `<title>`, meta description, canonical URL, and `hreflang` alternates. `/` detects your browser language client-side and redirects; crawlers get a `<meta refresh>` to `/en/`, so nobody's stuck staring at a blank page.
 
 ## SEO, or: making sure a robot can read this thing
 
@@ -47,22 +47,22 @@ pnpm run build     # typecheck + prerender everything into dist/
 pnpm run preview   # serve the production build locally
 ```
 
-`dist/` is a plain folder of static files. Host it anywhere that can serve HTML — no Node process required in production.
+`dist/` is a plain folder of static files. Host it anywhere that can serve HTML, no Node process required in production.
 
 ### Deploying to a subpath (e.g. GitHub Pages project sites)
 
 If the site doesn't live at your domain root, set these before building:
 
 ```bash
-BASE_PATH=/your-repo-name VITE_SITE_URL=https://you.github.io/your-repo-name npm run build
+BASE_PATH=/your-repo-name VITE_SITE_URL=https://you.github.io/your-repo-name pnpm run build
 ```
 
 Without them it assumes it owns the whole domain.
 
 ## CI/CD
 
-- `.github/workflows/ci.yml` — typecheck + build on every push and PR. Catches the "works on my machine" class of bugs before they touch `main`.
-- `.github/workflows/deploy.yml` — builds with the right `BASE_PATH`/`VITE_SITE_URL` for GitHub Pages and deploys on push to `main`. Enable it under **Settings → Pages → Source → GitHub Actions**, or it has nowhere to publish to.
+- `.github/workflows/ci.yml`: typecheck + build on every push and PR. Catches the "works on my machine" class of bugs before they touch `main`.
+- `.github/workflows/deploy.yml`: builds with the right `BASE_PATH`/`VITE_SITE_URL` for GitHub Pages and deploys on push to `main`. Enable it under **Settings > Pages > Source > GitHub Actions**, or it has nowhere to publish to.
 
 ## Project layout
 
@@ -81,10 +81,10 @@ src/
     mdn.ts                  per-locale MDN link builder
 ```
 
-Level _content_ (goal/hint/concept text) lives in `i18n/locales/*.ts`; level _structure_ (which controls are visible, what counts as solved) lives in `data/levels.ts`, same array index. Keep them in sync if you add a level — nothing will crash if you forget, it'll just quietly show the wrong instructions, which is somehow worse.
+Level _content_ (goal/hint/concept text) lives in `i18n/locales/*.ts`; level _structure_ (which controls are visible, what counts as solved) lives in `data/levels.ts`, same array index. Keep them in sync if you add a level: nothing will crash if you forget, it'll just quietly show the wrong instructions, which is somehow worse.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Do whatever you want with it.
+MIT, see [LICENSE](LICENSE). Do whatever you want with it.
 
 Created by [Valentyn Yefimov](https://github.com/valyefimov). Open source on GitHub.
